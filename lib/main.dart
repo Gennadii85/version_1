@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:version_1/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => Data(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -15,15 +20,19 @@ class MyApp extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const Text('increment'),
+            Text('${context.watch<Data>().age}'),
             IconButton(
               icon: const Icon(Icons.add),
-              onPressed: () {},
+              onPressed: () {
+                context.read<Data>().inctement();
+              },
             ),
-            const Text('dicrement'),
+             Text('${context.watch<Data>().pover}'),
             IconButton(
               icon: const Icon(Icons.remove),
-              onPressed: () {},
+              onPressed: () {
+                context.read<Data>().todolistTwo();
+              },
             ),
           ],
         ),
