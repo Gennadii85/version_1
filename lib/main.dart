@@ -4,7 +4,7 @@ import 'package:version_1/provider.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
-    create: (context) => Data(),
+    create: (_) => Data(),
     child: const MyApp(),
   ));
 }
@@ -27,6 +27,13 @@ class MyApp extends StatelessWidget {
                 context.read<Data>().inctement();
               },
             ),
+            IconButton(
+              icon: const Icon(Icons.remove_circle),
+              onPressed: () {
+                context.read<Data>().dicrement();
+              },
+            ),
+            
              Text('${context.watch<Data>().pover}'),
             IconButton(
               icon: const Icon(Icons.remove),

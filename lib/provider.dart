@@ -12,7 +12,12 @@ class Data extends ChangeNotifier {
 
   void inctement() {
     _age++;
-    notifyListeners() {} // почему не упоминается?
+    notifyListeners();
+  }
+
+  void dicrement() {
+    _age--;
+    notifyListeners();
   }
 
   void todolist() {
